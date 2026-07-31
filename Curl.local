@@ -1,0 +1,15 @@
+<VirtualHost *:80>
+    ServerName curl.local
+    ServerAdmin [my email address]
+    DocumentRoot [full path to the curl-www build]
+
+    ErrorLog ${APACHE_LOG_DIR}/curllocal-error.log
+    CustomLog ${APACHE_LOG_DIR}/curllocal-access.log combined
+</VirtualHost>
+
+<Directory [full path to the curl-www build]>
+   Options Indexes Includes FollowSymLinks ExecCGI
+   AllowOverride All
+   AddHandler cgi-script .cgi
+   Require all granted
+</Directory>
